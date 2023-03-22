@@ -6207,10 +6207,10 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-cross-ui@4.0.5:
-  version "4.0.5"
-  resolved "https://registry.npmjs.org/cross-ui/-/cross-ui-4.0.5.tgz#e6c4e595aa1b7e3bcf8288b7c09301aa7a987f37"
-  integrity sha512-5sOynqEgLbBnqVcvCO8hPtB8BDU+QTBBSCQxcG9BkWYqEPAMQAz0LRYSXR/o0edFPh9NuqnvG3Jiw0cyPAh9Eg==
+cross-ui@4.0.10:
+  version "4.0.10"
+  resolved "https://registry.npmjs.org/cross-ui/-/cross-ui-4.0.10.tgz#60a92c658baf41d03067f2e54fd4bbb09afa07cd"
+  integrity sha512-+NqKsV/AE9yylfOfq8WMvv1FkUODCAo9rNqCRUXau/cU+gIoK4vY/+z8mlf9MoyMlBsx2HieBA2CBclWqcvYeA==
   dependencies:
     "@alilc/lowcode-datasource-engine" "^1.1.4"
     async-validator "^4.2.5"
