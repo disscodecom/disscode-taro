@@ -1,0 +1,52 @@
+{
+        "miniprogramRoot": "dist/",
+        "projectname": "Disscode Miniapp",
+        "description": "taro mini project",
+        "appid": "wxb1af2569ee6d4b09",
+        "setting": {
+                "urlCheck": false,
+                "es6": false,
+                "enhance": true,
+                "postcss": false,
+                "preloadBackgroundData": false,
+                "minified": true,
+                "coverView": true,
+                "autoAudits": false,
+                "showShadowRootInWxmlPanel": true,
+                "uglifyFileName": false,
+                "checkInvalidKey": true,
+                "uploadWithSourceMap": true,
+                "compileHotReLoad": false,
+                "lazyloadPlaceholderEnable": false,
+                "useMultiFrameRuntime": true,
+                "useApiHook": true,
+                "useApiHostProcess": true,
+                "babelSetting": {
+                        "ignore": [],
+                        "disablePlugins": [],
+                        "outputPath": ""
+                },
+                "packNpmManually": false,
+                "packNpmRelationList": [],
+                "minifyWXSS": true,
+                "disableUseStrict": false,
+                "showES6CompileOption": false,
+                "useCompilerPlugins": false,
+                "useStaticServer": true,
+                "ignoreUploadUnusedFiles": true,
+                "minifyWXML": true,
+                "condition": false
+        },
+        "compileType": "miniprogram",
+        "libVersion": "2.22.0",
+        "srcMiniprogramRoot": "dist/",
+        "editorSetting": {
+                "tabIndent": "insertSpaces",
+                "tabSize": 8
+        },
+        "packOptions": {
+                "ignore": [],
+                "include": []
+        },
+        "condition": {}
+}
