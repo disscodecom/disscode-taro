@@ -1,7 +1,5 @@
 const path = require("path");
 
-console.log(process.env)
-
 const config = {
   projectName: "disscode-taro",
   date: "2022-11-3",

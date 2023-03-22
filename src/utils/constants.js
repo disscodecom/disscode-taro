@@ -1,3 +1,4 @@
-const __$$constants = {};
+const __$$constants = {
+};
 
 export default __$$constants;

@@ -24,7 +24,7 @@
     "build:ui": "yarn run build:rollup && yarn run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json",
     "build:rollup": "rollup --config ./config/rollup.config.js",
-    "sync": "mengti-export --output src/pages --id [projectId] --auth [token]"
+    "sync": "mengti-export --output src/pages --id projectId --auth token"
   },
   "browserslist": [
     "last 3 versions",
