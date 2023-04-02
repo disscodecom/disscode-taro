@@ -29,6 +29,9 @@ const config = {
     resource: process.env.TARO_ENV === 'rn' ? ["node_modules/cross-ui/rn/style/index.scss"] : [],
   },
   mini: {
+    compile: {
+      include: [modulePath => modulePath.indexOf('cross-ui') >= 0],
+    },
     postcss: {
       pxtransform: {
         enable: true,
@@ -69,6 +72,9 @@ const config = {
   h5: {
     publicPath: "/",
     staticDirectory: "static",
+    compile: {
+      include: [modulePath => modulePath.indexOf('cross-ui') >= 0],
+    },
     postcss: {
       pxtransform: {
         enable: true,
