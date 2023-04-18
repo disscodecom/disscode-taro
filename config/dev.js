@@ -4,6 +4,12 @@ module.exports = {
   },
   defineConstants: {
   },
+  compiler: {
+    type: 'webpack5',
+    prebundle: {
+      enable: false
+    }
+  },
   mini: {},
   h5: {}
 }

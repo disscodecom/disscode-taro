@@ -1,14 +1,14 @@
 import Taro from '@tarojs/taro'
-import * as utils from './'
-const { objectToQuery } = utils;
+import * as utils from './index'
+const { objectToQuery } = utils
 
 export function requestHandle(config?: Record<string, unknown>) {
   return function (options: any) {
     return new Promise(async (resolve, reject) => {
       let _options = options
       // hook
-      if ((utils as any).__beforeRequest) {
-        _options = (utils as any).__beforeRequest(options)
+      if ((utils as any)?.__beforeRequest) {
+        _options = (utils as any)?.__beforeRequest(options)
         if (_options.then && typeof _options.then === 'function') {
           _options = await (_options as any)()
         }
@@ -35,7 +35,7 @@ export function requestHandle(config?: Record<string, unknown>) {
       }
 
       const url =
-        uri.replace('huafutong-api.keyrey.tech', 'hft-win-java.keyrey.tech') +
+        uri +
         (query && Object.keys(query).length > 0 ? objectToQuery(query) : '')
       Taro.request({
         url,
@@ -48,12 +48,12 @@ export function requestHandle(config?: Record<string, unknown>) {
           ...headers
         },
         method,
-        timeout: 10000,
+        // timeout: 10000,
         success: async res => {
           // hook
           let response = res
-          if ((utils as any).__afterRequest) {
-            response = (utils as any).__afterRequest(response)
+          if ((utils as any)?.__afterRequest) {
+            response = (utils as any)?.__afterRequest(response)
             // @ts-ignore
             if (response.then && typeof response.then === 'function') {
               response = await (response as any)()

@@ -1,146 +1,149 @@
-const path = require("path");
+const path = require('path')
 
 const config = {
-  projectName: "disscode-taro",
-  date: "2022-11-3",
+  projectName: 'disscode-taro',
+  date: '2022-11-3',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
-    828: 1.81 / 2,
+    828: 1.81 / 2
   },
-  sourceRoot: "src",
-  outputRoot: "dist",
+  sourceRoot: 'src',
+  outputRoot: 'dist',
   // plugins: ['@tarojs/plugin-html'],
   defineConstants: {},
   alias: {
-    "@": path.resolve(__dirname, "..", "src"),
+    '@': path.resolve(__dirname, '..', 'src'),
+    ...(process.env.TARO_ENV === 'rn'
+      ? {
+          'cross-ui': path.resolve(__dirname, '..', 'node_modules/cross-ui/rn')
+        }
+      : {})
   },
   copy: {
     patterns: [],
-    options: {},
+    options: {}
   },
-  framework: "react",
-  compiler: "webpack5",
+  framework: 'react',
+  compiler: 'webpack5',
   cache: {
-    enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
+    enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
   sass: {
-    resource: process.env.TARO_ENV === 'rn' ? ["node_modules/cross-ui/rn/style/index.scss"] : [],
+    resource:
+      process.env.TARO_ENV === 'rn'
+        ? ['node_modules/cross-ui/rn/style/index.scss']
+        : []
   },
   mini: {
     compile: {
-      include: [modulePath => modulePath.indexOf('cross-ui') >= 0],
+      include: [modulePath => modulePath.indexOf('cross-ui') >= 0]
     },
     postcss: {
       pxtransform: {
         enable: true,
-        config: {},
+        config: {}
       },
       url: {
         enable: true,
         config: {
-          limit: 1024, // 设定转换尺寸上限
-        },
+          limit: 1024 // 设定转换尺寸上限
+        }
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
         config: {
-          namingPattern: "module", // 转换模式，取值为 global/module
-          generateScopedName: "[name]__[local]___[hash:base64:5]",
-        },
-      },
+          namingPattern: 'module', // 转换模式，取值为 global/module
+          generateScopedName: '[name]__[local]___[hash:base64:5]'
+        }
+      }
     },
     webpackChain(chain) {
       // Taro 3.1 & 3.2
-      chain.resolve.plugin("MultiPlatformPlugin").tap((args) => {
+      chain.resolve.plugin('MultiPlatformPlugin').tap(args => {
         return [
           ...args,
           {
-            include: ["cross-ui"],
-          },
-        ];
-      });
+            include: ['cross-ui']
+          }
+        ]
+      })
 
       // Taro 3.3+
-      chain.resolve.plugin("MultiPlatformPlugin").tap((args) => {
-        args[2]["include"] = ["cross-ui"];
-        return args;
-      });
-    },
+      chain.resolve.plugin('MultiPlatformPlugin').tap(args => {
+        args[2]['include'] = ['cross-ui']
+        return args
+      })
+    }
   },
   h5: {
-    publicPath: "/",
-    staticDirectory: "static",
+    publicPath: '/',
+    staticDirectory: 'static',
     compile: {
-      include: [modulePath => modulePath.indexOf('cross-ui') >= 0],
+      include: [modulePath => modulePath.indexOf('cross-ui') >= 0]
     },
     postcss: {
       pxtransform: {
         enable: true,
-        config: {
-          // selectorBlackList: ['nut-'],
-        },
+        config: {}
       },
       autoprefixer: {
         enable: true,
-        config: {
-          // selectorBlackList: ['nut-'],
-        },
+        config: {}
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
         config: {
-          namingPattern: "module", // 转换模式，取值为 global/module
-          generateScopedName: "[name]__[local]___[hash:base64:5]",
-        },
-      },
+          namingPattern: 'module', // 转换模式，取值为 global/module
+          generateScopedName: '[name]__[local]___[hash:base64:5]'
+        }
+      }
     },
     webpackChain(chain) {
       // Taro 3.1 & 3.2
-      chain.resolve.plugin("MultiPlatformPlugin").tap((args) => {
+      chain.resolve.plugin('MultiPlatformPlugin').tap(args => {
         return [
           ...args,
           {
-            include: ["cross-ui"],
-          },
-        ];
-      });
+            include: ['cross-ui']
+          }
+        ]
+      })
 
       // Taro 3.3+
-      chain.resolve.plugin("MultiPlatformPlugin").tap((args) => {
-        args[2]["include"] = ["cross-ui"];
-        return args;
-      });
-    },
+      chain.resolve.plugin('MultiPlatformPlugin').tap(args => {
+        args[2]['include'] = ['cross-ui']
+        return args
+      })
+    }
   },
   rn: {
     resolve: {
-      include: ["cross-ui"],
+      include: ['cross-ui']
     },
-    // enableSvgTransform: true,
+    enableSvgTransform: true,
     output: {
-      iosSourceMapUrl: "", // sourcemap 文件url
-      iosSourcemapOutput:
-        "../../mengti/taro-native-shell-0.69.0/ios/main.map", // sourcemap 文件输出路径
-      iosSourcemapSourcesRoot: "", // 将 sourcemap 资源路径转为相对路径时的根目录
-      androidSourceMapUrl: "",
+      iosSourceMapUrl: '', // sourcemap 文件url
+      iosSourcemapOutput: '../../mengti/taro-native-shell-0.69.0/ios/main.map', // sourcemap 文件输出路径
+      iosSourcemapSourcesRoot: '', // 将 sourcemap 资源路径转为相对路径时的根目录
+      androidSourceMapUrl: '',
       androidSourcemapOutput:
-        "../../mengti/taro-native-shell-0.69.0/android/app/src/main/assets/index.android.map",
-      androidSourcemapSourcesRoot: "",
-      ios: "../../mengti/taro-native-shell-0.69.0/ios/main.jsbundle",
-      iosAssetsDest: "../../mengti/taro-native-shell-0.69.0/ios",
+        '../../mengti/taro-native-shell-0.69.0/android/app/src/main/assets/index.android.map',
+      androidSourcemapSourcesRoot: '',
+      ios: '../../mengti/taro-native-shell-0.69.0/ios/main.jsbundle',
+      iosAssetsDest: '../../mengti/taro-native-shell-0.69.0/ios',
       android:
-        "../../mengti/taro-native-shell-0.69.0/android/app/src/main/assets/index.android.bundle",
+        '../../mengti/taro-native-shell-0.69.0/android/app/src/main/assets/index.android.bundle',
       androidAssetsDest:
-        "../../mengti/taro-native-shell-0.69.0/android/app/src/main/res",
-    },
-  },
-};
+        '../../mengti/taro-native-shell-0.69.0/android/app/src/main/res'
+    }
+  }
+}
 
 module.exports = function (merge) {
-  if (process.env.NODE_ENV === "development") {
-    return merge({}, config, require("./dev"));
+  if (process.env.NODE_ENV === 'development') {
+    return merge({}, config, require('./dev'))
   }
-  return merge({}, config, require("./prod"));
-};
+  return merge({}, config, require('./prod'))
+}

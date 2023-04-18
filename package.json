@@ -24,7 +24,7 @@
     "build:ui": "yarn run build:rollup && yarn run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json",
     "build:rollup": "rollup --config ./config/rollup.config.js",
-    "sync": "mengti-export --output src/pages --id projectId --auth token"
+    "sync": "disscode-cli --output src/pages --id 6429aa2d8aa31da63ff7e900 --auth eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6MTAwMDAxLCJzdWIiOjEwMDAwMSwiaWF0IjoxNjc5MDc1OTk1LCJleHAiOjE2ODE2Njc5OTV9.R-sHX1cOoP9cpd4UT2lUVMok5RidnShg9ZW7mDZYCAg -cc 1"
   },
   "browserslist": [
     "last 3 versions",
@@ -34,10 +34,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@alilc/lowcode-react-renderer": "^1.0.15",
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.5.12",
     "@tarojs/helper": "3.5.12",
+    "@tarojs/mini-runner": "^3.6.4",
     "@tarojs/plugin-framework-react": "3.5.12",
     "@tarojs/plugin-html": "3.5.12",
     "@tarojs/plugin-platform-alipay": "3.5.12",
@@ -56,14 +56,15 @@
     "@tarojs/taro-rn": "3.5.12",
     "@tarojs/webpack-runner": "3.5.12",
     "async-validator": "^4.2.5",
-    "cross-ui": "^4.0.10",
+    "cross-ui": "^4.0.18",
     "dayjs": "^1.11.6",
     "expo": "~46.0.2",
     "mobx": "^4.8.0",
     "mobx-react": "^6.1.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-native": "^0.69.3"
+    "react-native": "^0.69.3",
+    "react-native-svg": "~12.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
