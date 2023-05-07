@@ -4,6 +4,7 @@ node_modules/
 # Editor and IDE files
 .vscode
 .idea
+.swc
 
 # Build outputs
 packages/taro-ui/lib/
