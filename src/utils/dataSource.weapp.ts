@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
 import * as utils from './index'
+import { __beforeRequest, __afterRequest } from './utils'
 const { objectToQuery } = utils
 
 export function requestHandle(config?: Record<string, unknown>) {
@@ -7,8 +8,8 @@ export function requestHandle(config?: Record<string, unknown>) {
     return new Promise(async (resolve, reject) => {
       let _options = options
       // hook
-      if ((utils as any)?.__beforeRequest) {
-        _options = (utils as any)?.__beforeRequest(options)
+      if (__beforeRequest) {
+        _options = __beforeRequest(options)
         if (_options.then && typeof _options.then === 'function') {
           _options = await (_options as any)()
         }
@@ -52,8 +53,8 @@ export function requestHandle(config?: Record<string, unknown>) {
         success: async res => {
           // hook
           let response = res
-          if ((utils as any)?.__afterRequest) {
-            response = (utils as any)?.__afterRequest(response)
+          if (__afterRequest) {
+            response = __afterRequest(response)
             // @ts-ignore
             if (response.then && typeof response.then === 'function') {
               response = await (response as any)()

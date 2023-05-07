@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
 import * as utils from './index'
+import { __beforeRequest, __afterRequest } from './utils'
 const { objectToQuery } = utils
 
 export function requestHandle(config?: Record<string, unknown>) {
@@ -7,11 +8,9 @@ export function requestHandle(config?: Record<string, unknown>) {
     return new Promise(async (resolve, reject) => {
       let _options = options
       // hook
-      if ((utils as any)?.__beforeRequest) {
-        _options = (utils as any)?.__beforeRequest(options)
-        if (_options.then && typeof _options.then === 'function') {
-          _options = await (_options as any)()
-        }
+      _options = __beforeRequest(options)
+      if (_options.then && typeof _options.then === 'function') {
+        _options = await (_options as any)()
       }
       const { contentType, uri, query, params, method, headers = {} } = _options
       console.log('[HTTP_REQUEST] ', uri, _options)
@@ -48,16 +47,14 @@ export function requestHandle(config?: Record<string, unknown>) {
           ...headers
         },
         method,
-        // timeout: 10000,
+        timeout: 10000,
         success: async res => {
           // hook
           let response = res
-          if ((utils as any)?.__afterRequest) {
-            response = (utils as any)?.__afterRequest(response)
-            // @ts-ignore
-            if (response.then && typeof response.then === 'function') {
-              response = await (response as any)()
-            }
+          response = __afterRequest(response)
+          // @ts-ignore
+          if (response.then && typeof response.then === 'function') {
+            response = await (response as any)()
           }
           console.log('[HTTP_RESPONSE] ', uri, response, res)
           resolve(response)

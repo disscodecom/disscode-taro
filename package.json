@@ -1,5 +1,5 @@
 {
-  "name": "ruoqing-taro",
+  "name": "disscode-taro",
   "version": "1.0.0",
   "private": true,
   "description": "taro mini project",
@@ -23,8 +23,7 @@
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "build:ui": "yarn run build:rollup && yarn run build:lib",
     "build:lib": "tsc --project ./tsconfig.build.json",
-    "build:rollup": "rollup --config ./config/rollup.config.js",
-    "sync": "disscode-cli --output src/pages --id 6429aa2d8aa31da63ff7e900 --auth eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6MTAwMDAxLCJzdWIiOjEwMDAwMSwiaWF0IjoxNjc5MDc1OTk1LCJleHAiOjE2ODE2Njc5OTV9.R-sHX1cOoP9cpd4UT2lUVMok5RidnShg9ZW7mDZYCAg -cc 1"
+    "build:rollup": "rollup --config ./config/rollup.config.js"
   },
   "browserslist": [
     "last 3 versions",
@@ -58,12 +57,15 @@
     "cross-ui": "^4.0.19",
     "dayjs": "^1.11.6",
     "expo": "~46.0.2",
+    "laf-client-sdk": "^1.0.0-beta.2",
     "mobx": "^4.8.0",
     "mobx-react": "^6.1.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-native": "^0.69.3",
-    "react-native-svg": "~12.4.3"
+    "react-native-svg": "~12.4.3",
+    "crypto-browserify": "^3.12.0",
+    "stream-browserify": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

@@ -75,6 +75,15 @@ const config = {
         args[2]['include'] = ['cross-ui']
         return args
       })
+
+      chain.merge({
+        resolve: {
+          fallback: {
+            stream: require.resolve('stream-browserify'),
+            crypto: require.resolve('crypto-browserify')
+          }
+        }
+      })
     }
   },
   h5: {
@@ -86,7 +95,9 @@ const config = {
     postcss: {
       pxtransform: {
         enable: true,
-        config: {}
+        config: {
+          maxRootSize: 20,
+        }
       },
       autoprefixer: {
         enable: true,
@@ -116,6 +127,19 @@ const config = {
         args[2]['include'] = ['cross-ui']
         return args
       })
+
+      chain.merge({
+        resolve: {
+          fallback: {
+            stream: require.resolve('stream-browserify'),
+            crypto: require.resolve('crypto-browserify')
+          }
+        }
+      })
+
+      // chain.resolve.fallback = {
+      //   crypto: require.resolve('crypto-browserify')
+      // }
     }
   },
   rn: {
