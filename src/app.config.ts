@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  pages: ["pages/icon/index", "pages/calendar/index", "pages/dropDownSelection/index", "pages/formComponent/index", "pages/home/index", "pages/loginPage/index", "pages/pickerView/index", "pages/popover/index", "pages/registrationPage/index", "pages/swiperView/index", "pages/testPage/index"],
+  pages: [],
   // subpackages: [
   //   {
   //     name: 'sub',
