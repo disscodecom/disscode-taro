@@ -54,7 +54,7 @@
     "@tarojs/taro-rn": "3.5.12",
     "@tarojs/webpack-runner": "3.5.12",
     "async-validator": "^4.2.5",
-    "cross-ui": "^4.0.19",
+    "cross-ui": "^4.0.21",
     "dayjs": "^1.11.6",
     "expo": "~46.0.2",
     "laf-client-sdk": "^1.0.0-beta.2",

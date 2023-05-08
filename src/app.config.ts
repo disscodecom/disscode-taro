@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  pages: [],
+  pages: ["pages/lafTodo/index", "pages/homePage/index", "pages/translateGithub/index"],
   // subpackages: [
   //   {
   //     name: 'sub',
@@ -8,14 +8,14 @@ export default defineAppConfig({
   //   }
   // ],
   window: {
-    navigationBarTextStyle: "black"
+    navigationBarTextStyle: "white"
   },
   networkTimeout: {
-    request: 10000,
-    connectSocket: 15000,
+    request: 8000,
+    connectSocket: 10000,
     uploadFile: 20000,
     downloadFile: 30000
   },
   resizable: true,
-  requiredBackgroundModes: ['audio', 'location']
+  requiredBackgroundModes: ["audio", "location"]
 });
