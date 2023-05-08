@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack');
 
 const config = {
   projectName: 'disscode-taro',
@@ -80,10 +81,22 @@ const config = {
         resolve: {
           fallback: {
             stream: require.resolve('stream-browserify'),
-            crypto: require.resolve('crypto-browserify')
+            crypto: require.resolve('crypto-browserify'),
+            // zlib: require.resolve('browserify-zlib'),
+            // assert: require.resolve('assert/'),
+            // util: require.resolve('util/'),
+            // http: require.resolve('stream-http'),
+            // https: require.resolve('https-browserify'),
+            // tty: require.resolve('tty-browserify'),
+            // os: require.resolve('os-browserify/browser'),
+            // process: require.resolve('process/browser'),
           }
         }
       })
+
+      // chain.plugin('provide').use(webpack.ProvidePlugin, [{
+      //   process: 'process/browser'
+      // }]);
     }
   },
   h5: {
@@ -132,10 +145,22 @@ const config = {
         resolve: {
           fallback: {
             stream: require.resolve('stream-browserify'),
-            crypto: require.resolve('crypto-browserify')
+            crypto: require.resolve('crypto-browserify'),
+            // zlib: require.resolve('browserify-zlib'),
+            // assert: require.resolve('assert/'),
+            // util: require.resolve('util/'),
+            // http: require.resolve('stream-http'),
+            // https: require.resolve('https-browserify'),
+            // tty: require.resolve('tty-browserify'),
+            // os: require.resolve('os-browserify/browser'),
+            // process: require.resolve('process/browser'),
           }
         }
       })
+
+      // chain.plugin('provide').use(webpack.ProvidePlugin, [{
+      //   process: 'process/browser'
+      // }]);
 
       // chain.resolve.fallback = {
       //   crypto: require.resolve('crypto-browserify')
