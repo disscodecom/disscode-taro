@@ -1,21 +1,24 @@
-import React, { Component, PropsWithChildren } from "react";
-import { configure } from "mobx";
-import { Provider } from "mobx-react";
-import "./app.scss";
+import React, { Component, PropsWithChildren } from 'react'
+import { configure } from 'mobx'
+import { Provider } from 'mobx-react'
+import './app.scss'
 
 /**
  * 将同步的文件信息通知cross-ui，请勿删除
  */
-import { loadSyncMap } from "cross-ui/utils";
-import syncMap from '@/pages/map.json';
+import { config } from 'cross-ui'
+config.set('homePath', '/pages/index/index');
+
+import { loadSyncMap } from 'cross-ui/utils'
+import syncMap from '@/pages/map.json'
 loadSyncMap({
   baseUrl: '/pages',
-  syncMap,
-});
+  syncMap
+})
 
-configure({ isolateGlobalState: true });
+configure({ isolateGlobalState: true })
 
-const store = {};
+const store = {}
 
 class App extends Component<PropsWithChildren> {
   componentDidMount() {}
@@ -26,8 +29,8 @@ class App extends Component<PropsWithChildren> {
 
   // this.props.children 就是要渲染的页面
   render() {
-    return <Provider store={store}>{this.props.children}</Provider>;
+    return <Provider store={store}>{this.props.children}</Provider>
   }
 }
 
-export default App;
+export default App

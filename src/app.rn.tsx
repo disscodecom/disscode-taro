@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PermissionsAndroid, Platform } from 'react-native';
 // import SplashScreen from 'react-native-splash-screen'
 
 import { TopView } from 'cross-ui';
@@ -21,9 +22,32 @@ interface IProps {
   children: React.ReactNode;
 }
 
+/**
+ * 请求权限
+ */
+const requestPermissions = (cb: () => void) => {
+  try {
+    if (Platform.OS === 'ios') {
+      cb && cb();
+    } else {
+      PermissionsAndroid.requestMultiple([PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE, PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION, PermissionsAndroid.PERMISSIONS.CAMERA]).then(
+        (granted: any) => {
+          console.log('[granted] ', granted);
+          cb && cb();
+        },
+      );
+    }
+  } catch (err) {
+    console.log('[requestPermissions error] ', err);
+  }
+};
+
 class App extends Component<IProps> {
   componentDidMount() {
     // SplashScreen && SplashScreen.hide();
+    requestPermissions(() => {
+      console.log('权限已请求');
+    });
   }
 
   componentWillUnmount(): void {

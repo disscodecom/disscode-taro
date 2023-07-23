@@ -40,10 +40,11 @@ export function requestHandle(config?: Record<string, unknown>) {
         url,
         data: contentType === 'FORM' ? data : params,
         header: {
-          'content-type':
-            contentType === 'application/x-www-form-urlencoded'
-              ? 'application/x-www-form-urlencoded'
-              : 'multipart/form-data; boundary=XXX',
+          'content-type': contentType === 'JSON'
+            ? 'application/json'
+            : contentType === 'application/x-www-form-urlencoded'
+            ? 'application/x-www-form-urlencoded'
+            : 'multipart/form-data; boundary=XXX',
           ...headers
         },
         method,

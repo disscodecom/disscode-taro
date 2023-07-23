@@ -1245,6 +1245,13 @@
   resolved "https://registry.npmmirror.com/@bang88/react-native-ultimate-listview/-/react-native-ultimate-listview-4.1.0.tgz#efff14ce5a09e8c52116580cdfa17f253faffde2"
   integrity sha512-om2CsUXyr5kPvW1qBL+zGWOLwE7jq+wYCY47eBIRs7GmLqnnhbG2LlTHhnid8NI4q2/DQsEVfu8oWk15Atb7BA==
 
+"@charlesvien/react-animatecss@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmmirror.com/@charlesvien/react-animatecss/-/react-animatecss-1.0.10.tgz#2c56e641b9b58f2003e38d7e58452a46d11e6239"
+  integrity sha512-LxgEumPaf1KXc/i1sXqsAJT06SAZROM+f8C04pr0MGZXF4HgTq1KurDBZf1m/9IVaG2/T66rJww38zyUWWeUNw==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@csstools/selector-specificity@^2.0.2":
   version "2.1.1"
   resolved "https://registry.npmmirror.com/@csstools/selector-specificity/-/selector-specificity-2.1.1.tgz#c9c61d9fe5ca5ac664e1153bb0aa0eba1c6d6308"
@@ -15311,6 +15318,11 @@ react-shallow-renderer@16.15.0:
   dependencies:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0 || ^18.0.0"
+
+react-simple-animate@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.npmmirror.com/react-simple-animate/-/react-simple-animate-3.5.2.tgz#ab08865c8bd47872b92bd1e25902326bf7c695b3"
+  integrity sha512-xLE65euP920QMTOmv5haPlml+hmOPDkbIr5WeF7ADIXWBYt5kW/vwpNfWg8EKMab8aeDxIZ6QjffVh8v2dUyhg==
 
 react@^16.9:
   version "16.14.0"

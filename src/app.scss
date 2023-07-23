@@ -1,2 +1,9 @@
 @import "~cross-ui/dist/style/index.scss";
 
+.index__home_page {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+}
