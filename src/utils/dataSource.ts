@@ -12,7 +12,7 @@ export function requestHandle(config?: Record<string, unknown>) {
       if (_options.then && typeof _options.then === 'function') {
         _options = await (_options as any)()
       }
-      const { contentType, uri, query, params, method, headers = {} } = _options
+      const { contentType, uri, query, params, method, headers = {}, timeout } = _options
       console.log('[HTTP_REQUEST] ', uri, _options)
       let data = ''
       if (contentType === 'FORM') {
@@ -48,7 +48,7 @@ export function requestHandle(config?: Record<string, unknown>) {
           ...headers
         },
         method,
-        timeout: 10000,
+        timeout: timeout || 10000,
         success: async res => {
           // hook
           let response = res
