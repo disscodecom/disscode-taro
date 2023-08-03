@@ -1245,13 +1245,6 @@
   resolved "https://registry.npmmirror.com/@bang88/react-native-ultimate-listview/-/react-native-ultimate-listview-4.1.0.tgz#efff14ce5a09e8c52116580cdfa17f253faffde2"
   integrity sha512-om2CsUXyr5kPvW1qBL+zGWOLwE7jq+wYCY47eBIRs7GmLqnnhbG2LlTHhnid8NI4q2/DQsEVfu8oWk15Atb7BA==
 
-"@charlesvien/react-animatecss@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.npmmirror.com/@charlesvien/react-animatecss/-/react-animatecss-1.0.10.tgz#2c56e641b9b58f2003e38d7e58452a46d11e6239"
-  integrity sha512-LxgEumPaf1KXc/i1sXqsAJT06SAZROM+f8C04pr0MGZXF4HgTq1KurDBZf1m/9IVaG2/T66rJww38zyUWWeUNw==
-  dependencies:
-    prop-types "^15.7.2"
-
 "@csstools/selector-specificity@^2.0.2":
   version "2.1.1"
   resolved "https://registry.npmmirror.com/@csstools/selector-specificity/-/selector-specificity-2.1.1.tgz#c9c61d9fe5ca5ac664e1153bb0aa0eba1c6d6308"
@@ -6449,16 +6442,15 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-cross-ui@^4.0.21:
-  version "4.0.21"
-  resolved "https://registry.npmjs.org/cross-ui/-/cross-ui-4.0.21.tgz#86eea51a29794ec5c83fe5fbc7b2c17ac0b06aad"
-  integrity sha512-/Q1JWXP8m8vIcVack7buD1PrQTbsWlVXk7/0ND+EGyXD5nFNp3XBkxrhiEtBtp9YmbLXIqb9/5O4Yu1u16Fnig==
+cross-ui@^4.0.36:
+  version "4.0.36"
+  resolved "https://registry.npmjs.org/cross-ui/-/cross-ui-4.0.36.tgz#9f7e22024ff9050c6a5f2b804278dcb426f34f8f"
+  integrity sha512-s9kKxSWGJeHlG9pbc8LL/3+0SufMZf9XcFLA1d30tcATSH7WyvDqwA/ffs3th8PQRj2ezDNVf2ZteykDU3fgrA==
   dependencies:
     "@alilc/lowcode-datasource-engine" "^1.1.4"
     async-validator "^4.2.5"
     classnames "^2.2.6"
     dayjs "^1.11.6"
-    laf-client-sdk "^1.0.0-beta.7"
     lodash "^4.17.21"
     mobx "^4.8.0"
     mobx-react "^6.1.4"
@@ -11544,7 +11536,7 @@ known-css-properties@^0.6.0:
   resolved "https://registry.npmmirror.com/known-css-properties/-/known-css-properties-0.6.1.tgz#31b5123ad03d8d1a3f36bd4155459c981173478b"
   integrity sha512-nQRpMcHm1cQ6gmztdvLcIvxocznSMqH/y6XtERrWrHaymOYdDGroRqetJvJycxGEr1aakXiigDgn7JnzuXlk6A==
 
-laf-client-sdk@^1.0.0-beta.2, laf-client-sdk@^1.0.0-beta.7:
+laf-client-sdk@^1.0.0-beta.2:
   version "1.0.0-beta.7"
   resolved "https://registry.npmmirror.com/laf-client-sdk/-/laf-client-sdk-1.0.0-beta.7.tgz#aadf957493b2cd110293ab7582e3da047e1992bf"
   integrity sha512-qe5KRt5PT6tFllklXDP+/r8Gglu9udyrHG8VInITxgWpGfQEScnprU3wGl+EBtDaTKnA+nRbsXXIS2aMuuWzpg==
@@ -15318,11 +15310,6 @@ react-shallow-renderer@16.15.0:
   dependencies:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0 || ^18.0.0"
-
-react-simple-animate@^3.5.2:
-  version "3.5.2"
-  resolved "https://registry.npmmirror.com/react-simple-animate/-/react-simple-animate-3.5.2.tgz#ab08865c8bd47872b92bd1e25902326bf7c695b3"
-  integrity sha512-xLE65euP920QMTOmv5haPlml+hmOPDkbIr5WeF7ADIXWBYt5kW/vwpNfWg8EKMab8aeDxIZ6QjffVh8v2dUyhg==
 
 react@^16.9:
   version "16.14.0"
