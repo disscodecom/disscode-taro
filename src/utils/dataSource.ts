@@ -10,7 +10,7 @@ export function requestHandle(config?: Record<string, unknown>) {
       // hook
       _options = __beforeRequest(options)
       if (_options.then && typeof _options.then === 'function') {
-        _options = await (_options as any)()
+        _options = await __beforeRequest(options)
       }
       const { contentType, uri, query, params, method, headers = {}, timeout } = _options
       console.log('[HTTP_REQUEST] ', uri, _options)
@@ -55,7 +55,7 @@ export function requestHandle(config?: Record<string, unknown>) {
           response = __afterRequest(response)
           // @ts-ignore
           if (response.then && typeof response.then === 'function') {
-            response = await (response as any)()
+            response = await __afterRequest(res)
           }
           console.log('[HTTP_RESPONSE] ', uri, response, res)
           resolve(response)
