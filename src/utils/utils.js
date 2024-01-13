@@ -8,5 +8,3 @@ export const __beforeRequest = function (options) {
 export const __afterRequest = function (response) {
   return response;
 };
-import { Cloud } from "laf-client-sdk";
-export const Laf = Cloud;

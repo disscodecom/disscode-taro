@@ -3,6 +3,8 @@ import { configure } from 'mobx'
 import { Provider } from 'mobx-react'
 import './app.scss'
 
+import '@/utils/portal';
+
 /**
  * 将同步的文件信息通知cross-ui，请勿删除
  */
@@ -15,6 +17,7 @@ loadSyncMap({
   baseUrl: '/pages',
   syncMap
 })
+
 
 configure({ isolateGlobalState: true })
 
