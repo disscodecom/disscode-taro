@@ -1,8 +1,8 @@
 {
         "miniprogramRoot": "dist/",
-        "projectname": "Disscode Miniapp",
+        "projectname": "AppThen Miniapp",
         "description": "taro mini project",
-        "appid": "wxb1af2569ee6d4b09",
+        "appid": "wx6ff710afda480cd6",
         "setting": {
                 "urlCheck": false,
                 "es6": false,

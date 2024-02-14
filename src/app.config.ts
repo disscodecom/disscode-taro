@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  pages: ["pages/lafTodo/index", "pages/homePage/index", "pages/translateGithub/index"],
+  pages: [],
   // subpackages: [
   //   {
   //     name: 'sub',
@@ -8,11 +8,11 @@ export default defineAppConfig({
   //   }
   // ],
   window: {
-    navigationBarTextStyle: "white"
+    navigationBarTextStyle: "black"
   },
   networkTimeout: {
-    request: 8000,
-    connectSocket: 10000,
+    request: 10000,
+    connectSocket: 15000,
     uploadFile: 20000,
     downloadFile: 30000
   },
