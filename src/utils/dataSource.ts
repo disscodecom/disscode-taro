@@ -10,9 +10,9 @@ export function requestHandle(config?: Record<string, unknown>) {
       // hook
       _options = __beforeRequest(options)
       if (_options.then && typeof _options.then === 'function') {
-        _options = await (_options as any)()
+        _options = await __beforeRequest(options)
       }
-      const { contentType, uri, query, params, method, headers = {} } = _options
+      const { contentType, uri, query, params, method, headers = {}, timeout } = _options
       console.log('[HTTP_REQUEST] ', uri, _options)
       let data = ''
       if (contentType === 'FORM') {
@@ -40,21 +40,22 @@ export function requestHandle(config?: Record<string, unknown>) {
         url,
         data: contentType === 'FORM' ? data : params,
         header: {
-          'content-type':
-            contentType === 'application/x-www-form-urlencoded'
-              ? 'application/x-www-form-urlencoded'
-              : 'multipart/form-data; boundary=XXX',
+          'content-type': contentType === 'JSON'
+            ? 'application/json'
+            : contentType === 'application/x-www-form-urlencoded'
+            ? 'application/x-www-form-urlencoded'
+            : 'multipart/form-data; boundary=XXX',
           ...headers
         },
         method,
-        timeout: 10000,
+        timeout: timeout || 10000,
         success: async res => {
           // hook
           let response = res
           response = __afterRequest(response)
           // @ts-ignore
           if (response.then && typeof response.then === 'function') {
-            response = await (response as any)()
+            response = await __afterRequest(res)
           }
           console.log('[HTTP_RESPONSE] ', uri, response, res)
           resolve(response)

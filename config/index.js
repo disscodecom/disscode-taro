@@ -1,8 +1,10 @@
+import { defineConfig } from '@tarojs/cli'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 const path = require('path')
-const webpack = require('webpack');
+const webpack = require('webpack')
 
 const config = {
-  projectName: 'disscode-taro',
+  projectName: 'appthen-taro',
   date: '2022-11-3',
   designWidth: 750,
   deviceRatio: {
@@ -12,7 +14,6 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  // plugins: ['@tarojs/plugin-html'],
   defineConstants: {},
   alias: {
     '@': path.resolve(__dirname, '..', 'src'),
@@ -31,6 +32,9 @@ const config = {
   cache: {
     enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
+  plugins: [['@tarojs/plugin-html', {
+    pxtransformBlackList: [/adm-/, /demo-/, /^body/]
+  }]],
   sass: {
     resource:
       process.env.TARO_ENV === 'rn'
@@ -38,6 +42,9 @@ const config = {
         : []
   },
   mini: {
+    miniCssExtractPluginOption: {
+      ignoreOrder: true
+    },
     compile: {
       include: [modulePath => modulePath.indexOf('cross-ui') >= 0]
     },
@@ -49,7 +56,7 @@ const config = {
       url: {
         enable: true,
         config: {
-          limit: 1024 // 设定转换尺寸上限
+          limit: 20480 // 设定转换尺寸上限
         }
       },
       cssModules: {
@@ -61,6 +68,8 @@ const config = {
       }
     },
     webpackChain(chain) {
+      chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
+
       // Taro 3.1 & 3.2
       chain.resolve.plugin('MultiPlatformPlugin').tap(args => {
         return [
@@ -81,22 +90,10 @@ const config = {
         resolve: {
           fallback: {
             stream: require.resolve('stream-browserify'),
-            crypto: require.resolve('crypto-browserify'),
-            // zlib: require.resolve('browserify-zlib'),
-            // assert: require.resolve('assert/'),
-            // util: require.resolve('util/'),
-            // http: require.resolve('stream-http'),
-            // https: require.resolve('https-browserify'),
-            // tty: require.resolve('tty-browserify'),
-            // os: require.resolve('os-browserify/browser'),
-            // process: require.resolve('process/browser'),
+            crypto: require.resolve('crypto-browserify')
           }
         }
       })
-
-      // chain.plugin('provide').use(webpack.ProvidePlugin, [{
-      //   process: 'process/browser'
-      // }]);
     }
   },
   h5: {
@@ -109,7 +106,7 @@ const config = {
       pxtransform: {
         enable: true,
         config: {
-          maxRootSize: 20,
+          maxRootSize: 20
         }
       },
       autoprefixer: {
@@ -125,6 +122,7 @@ const config = {
       }
     },
     webpackChain(chain) {
+      chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
       // Taro 3.1 & 3.2
       chain.resolve.plugin('MultiPlatformPlugin').tap(args => {
         return [
@@ -145,26 +143,10 @@ const config = {
         resolve: {
           fallback: {
             stream: require.resolve('stream-browserify'),
-            crypto: require.resolve('crypto-browserify'),
-            // zlib: require.resolve('browserify-zlib'),
-            // assert: require.resolve('assert/'),
-            // util: require.resolve('util/'),
-            // http: require.resolve('stream-http'),
-            // https: require.resolve('https-browserify'),
-            // tty: require.resolve('tty-browserify'),
-            // os: require.resolve('os-browserify/browser'),
-            // process: require.resolve('process/browser'),
+            crypto: require.resolve('crypto-browserify')
           }
         }
       })
-
-      // chain.plugin('provide').use(webpack.ProvidePlugin, [{
-      //   process: 'process/browser'
-      // }]);
-
-      // chain.resolve.fallback = {
-      //   crypto: require.resolve('crypto-browserify')
-      // }
     }
   },
   rn: {
