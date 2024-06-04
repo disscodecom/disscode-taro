@@ -95,9 +95,6 @@
     "typescript": "^5.1.0",
     "webpack": "5.78.0"
   },
-  "resolutions": {
-    "**/sass": "1.58.3"
-  },
   "pnpm": {
     "overrides": {
       "sass": "1.58.3"
